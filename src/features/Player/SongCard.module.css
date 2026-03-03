@@ -1,0 +1,16 @@
+.songCardContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 2px solid hsl(60, 5%, 20%);
+  background-color: #11110b;
+  padding: 1rem;
+  color: hsl(40, 3%, 50%);
+  border-radius: 5px;
+  margin: 0.2rem 0;
+  font-weight: bold;
+}
+
+.songCardContainer button {
+  background-color: var(--secondary-button-color);
+}
