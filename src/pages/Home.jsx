@@ -1,16 +1,14 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import SongCard from "../features/Player/SongCard";
+import PlayerContext from "../context/PlayerContext";
 
-const Home = ({ songList, isLoading }) => {
-  // console.log("Home component mounted/rendered");
+const Home = () => {
   const [randomSong, setRandomSong] = useState(null);
+  const { isLoading, songList } = useContext(PlayerContext);
 
   useEffect(() => {
-    // console.log("useEffect is running!");
-    console.log("songList in Home:", songList);
     if (songList && songList.length > 0) {
       const random = songList[Math.floor(Math.random() * songList.length)];
-      // console.log("Setting randomSong to:", random);
       setRandomSong(random);
     }
   }, [songList]);

@@ -5,7 +5,7 @@ import Home from "./pages/Home";
 import Library from "./pages/Library";
 import Playlist from "./pages/Playlist";
 import NotFound from "./pages/NotFound";
-import PlayerContext from "./features/Player/PlayerContext";
+import PlayerContext from "./context/PlayerContext";
 import "./App.css";
 
 const url = `https://api.airtable.com/v0/${import.meta.env.VITE_BASE_ID}/${import.meta.env.VITE_TABLE_NAME}`;
@@ -17,6 +17,7 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [songList, setSongList] = useState([]);
+  const [favorites, setFavorites] = useState([]);
 
   useEffect(() => {
     const fetchSongs = async () => {
@@ -54,18 +55,45 @@ function App() {
     fetchSongs();
   }, []);
 
+  const addToFavorites = (song) => {
+    setFavorites((prev) => {
+      const exists = prev.find((favSong) => favSong.id === song.id);
+      if (exists) {
+        return prev;
+      }
+      return [...prev, song];
+    });
+  };
+
+  const removeFavoriteSong = (songId) => {
+    setFavorites((favorites) => favorites.filter((song) => song.id !== songId));
+  };
+
+  const playSong = (song) => {
+    setCurrentSong(song);
+    setIsPlaying(true);
+  };
+
   return (
     <>
       <PlayerContext.Provider
-        value={{ currentSong, setCurrentSong, isPlaying, setIsPlaying }}
+        value={{
+          currentSong,
+          setCurrentSong,
+          isPlaying,
+          setIsPlaying,
+          isLoading,
+          songList,
+          favorites,
+          playSong,
+          addToFavorites,
+          removeFavoriteSong,
+        }}
       >
         <Layout>
           <Routes>
-            <Route
-              path="/"
-              element={<Home songList={songList} isLoading={isLoading} />}
-            />
-            <Route path="/library" element={<Library songList={songList} />} />
+            <Route path="/" element={<Home />} />
+            <Route path="/library" element={<Library />} />
             <Route path="/playlist" element={<Playlist />} />
             <Route path="*" element={<NotFound />} />
           </Routes>

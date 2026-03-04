@@ -1,5 +1,5 @@
 import { useContext, useEffect, useRef } from "react";
-import PlayerContext from "./PlayerContext";
+import PlayerContext from "../../context/PlayerContext";
 import styles from "./Player.module.css";
 
 const Player = () => {
