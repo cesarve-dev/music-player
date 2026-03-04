@@ -1,0 +1,26 @@
+.layoutContainer {
+  /* width: 100%; */
+  /* border: 1px solid #fff; */
+}
+
+.layoutContainer nav {
+  /* border: 1px solid red; */
+  padding: 2rem 0;
+  display: flex;
+  justify-content: space-around;
+}
+
+.layoutContainer nav a:hover {
+  color: #e0e1dd;
+}
+
+.active {
+  color: #e0e1dd;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.inactive {
+  color: #abafab;
+  text-decoration: none;
+}

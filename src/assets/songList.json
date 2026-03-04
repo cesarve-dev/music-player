@@ -1,0 +1,34 @@
+{
+  "songList": [
+    {
+      "id": 1,
+      "title": "Adam's Song",
+      "artist": "Blink 182",
+      "url": "src/assets/songs/blink-182 - Adam's Song.mp3"
+    },
+    {
+      "id": 2,
+      "title": "Always",
+      "artist": "Blink 182",
+      "url": "src/assets/songs/blink-182 - Always (Official Video).mp3"
+    },
+    {
+      "id": 3,
+      "title": "I Miss You",
+      "artist": "Blink 182",
+      "url": "src/assets/songs/blink-182 - I Miss You (Official Video).mp3"
+    },
+    {
+      "id": 4,
+      "title": "Mi Historia Entre Tus Dedos",
+      "artist": "Gianluca Grignani",
+      "url": "src/assets/songs/Gianluca Grignani - Mi Historia Entre Tus Dedos (HD).mp3"
+    },
+    {
+      "id": 5,
+      "title": "Lobo Hombre En París",
+      "artist": "La Unión",
+      "url": "src/assets/songs/LA UNIÓN - Lobo Hombre en París (1984).mp3"
+    }
+  ]
+}

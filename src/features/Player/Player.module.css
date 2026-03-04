@@ -1,0 +1,38 @@
+.playerContainer {
+  background: hsla(21, 91%, 61%, 1);
+  background: linear-gradient(
+    270deg,
+    hsla(21, 91%, 61%, 1) 0%,
+    hsla(15, 66%, 30%, 1) 100%
+  );
+  background: -moz-linear-gradient(
+    270deg,
+    hsla(21, 91%, 61%, 1) 0%,
+    hsla(15, 66%, 30%, 1) 100%
+  );
+  background: -webkit-linear-gradient(
+    270deg,
+    hsla(21, 91%, 61%, 1) 0%,
+    hsla(15, 66%, 30%, 1) 100%
+  );
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border-radius: 5px;
+}
+
+.buttonContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.buttonContainer button {
+  margin: 0.25rem 0;
+}
+
+.playerContainer div {
+  text-align: left;
+  font-weight: bold;
+}

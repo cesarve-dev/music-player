@@ -1,37 +1,37 @@
 import { useState } from "react";
-import { useLocation, Route, Routes } from "react-router";
-import Header from "./shared/Header";
+import { Route, Routes } from "react-router";
+import Layout from "./shared/Layout";
 import Home from "./pages/Home";
 import Library from "./pages/Library";
 import Playlist from "./pages/Playlist";
 import NotFound from "./pages/NotFound";
+import PlayerContext from "./features/Player/PlayerContext";
 import "./App.css";
-import { useEffect } from "react";
+
+// const defaultSong = {
+//   title: "Adam's Song",
+//   artist: "Blink 182",
+//   url: "src/assets/songs/blink-182 - Adam's Song.mp3",
+// };
 
 function App() {
-  const [title, setTitle] = useState("");
-  const location = useLocation();
+  const [currentSong, setCurrentSong] = useState(null);
+  const [isPlaying, setIsPlaying] = useState(false);
 
-  useEffect(() => {
-    if (location.pathname === "/") {
-      setTitle("Home");
-    } else if (location.pathname === "/library") {
-      setTitle("Library");
-    } else if (location.pathname === "/playlist") {
-      setTitle("Playlist");
-    } else {
-      setTitle("Not Found");
-    }
-  }, [location]);
   return (
     <>
-      <Header title={title} />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/library" element={<Library />} />
-        <Route path="/playlist" element={<Playlist />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+      <PlayerContext.Provider
+        value={{ currentSong, setCurrentSong, isPlaying, setIsPlaying }}
+      >
+        <Layout>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/library" element={<Library />} />
+            <Route path="/playlist" element={<Playlist />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </Layout>
+      </PlayerContext.Provider>
     </>
   );
 }
