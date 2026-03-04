@@ -5,6 +5,10 @@ import styles from "./SongCard.module.css";
 const SongCard = ({ song }) => {
   const { setCurrentSong, setIsPlaying } = useContext(PlayerContext);
 
+  if (!song) {
+    return <div className={styles.songCardContainer}>Loading...</div>;
+  }
+
   const handlePlay = () => {
     setCurrentSong(song);
     setIsPlaying(true);

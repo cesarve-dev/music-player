@@ -1,13 +1,11 @@
 import SongCard from "../features/Player/SongCard";
-import songList from "../assets/songList.json";
+// import songList from "../assets/songList.json";
 
-const Library = () => {
-  const songs = songList.songList;
-
+const Library = ({ songList }) => {
   return (
     <>
       <h1>Library Songs</h1>
-      {songs.map((song) => (
+      {songList.map((song) => (
         <SongCard key={song.id} song={song} />
       ))}
     </>
