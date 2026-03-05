@@ -1,13 +1,18 @@
+import { useContext } from "react";
 import SongCard from "../features/Player/SongCard";
-import songList from "../assets/songList.json";
+import styled from "styled-components";
+import PlayerContext from "../context/PlayerContext";
 
 const Library = () => {
-  const songs = songList.songList;
-
+  const { songList } = useContext(PlayerContext);
   return (
     <>
       <h1>Library Songs</h1>
-      {songs.map((song) => (
+      <Header>
+        <p>Title</p>
+        <p>Artist</p>
+      </Header>
+      {songList.map((song) => (
         <SongCard key={song.id} song={song} />
       ))}
     </>
@@ -15,3 +20,10 @@ const Library = () => {
 };
 
 export default Library;
+
+const Header = styled.div`
+  display: flex;
+  justify-content: space-around;
+  font-weight: bold;
+  padding: 1rem 0;
+`;

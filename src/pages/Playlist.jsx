@@ -1,5 +1,18 @@
+import { useContext } from "react";
+import PlayerContext from "../context/PlayerContext";
+import SongCard from "../features/Player/SongCard";
+
 const Playlist = () => {
-  return <h1>Favorite Playlist</h1>;
+  const { favorites, removeFavoriteSong } = useContext(PlayerContext);
+
+  return (
+    <div>
+      <h2>Favorite Playlist</h2>
+      {favorites.map((song) => (
+        <SongCard key={song.id} song={song} showFavoriteButton={false} />
+      ))}
+    </div>
+  );
 };
 
 export default Playlist;

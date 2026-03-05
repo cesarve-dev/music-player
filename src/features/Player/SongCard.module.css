@@ -11,6 +11,21 @@
   font-weight: bold;
 }
 
+.songDataContainer {
+  flex-grow: 2;
+  display: flex;
+  justify-content: space-between;
+  margin-right: 0.5rem;
+}
+
+/* .songDataContainer > :first-child {
+  flex-grow: 2;
+}
+
+.songDataContainer > :nth-child(2) {
+  flex-grow: 1;
+} */
+
 .songCardContainer button {
   background-color: var(--secondary-button-color);
 }
