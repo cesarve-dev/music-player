@@ -30,9 +30,19 @@
 
 .buttonContainer button {
   margin: 0.25rem 0;
+  padding: 10px 12px;
+  border-radius: 50%;
 }
 
 .playerContainer div {
   text-align: left;
   font-weight: bold;
+}
+
+span {
+  font-weight: 400;
+}
+
+.songDataContainer p:nth-child(2) {
+  color: hsl(0, 0%, 80%);
 }

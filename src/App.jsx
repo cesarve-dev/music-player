@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { Route, Routes } from "react-router";
 import Layout from "./shared/Layout";
 import Home from "./pages/Home";
@@ -39,7 +39,7 @@ function App() {
             id: record.id,
             title: record.fields.title,
             artist: record.fields.artist,
-            url: record.fields.url,
+            url: record.fields.attachments[0].url,
           };
           return song;
         });
@@ -69,10 +69,10 @@ function App() {
     setFavorites((favorites) => favorites.filter((song) => song.id !== songId));
   };
 
-  const playSong = (song) => {
+  const playSong = useCallback((song) => {
     setCurrentSong(song);
     setIsPlaying(true);
-  };
+  }, []);
 
   return (
     <>

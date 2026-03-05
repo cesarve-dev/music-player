@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import PlayerContext from "../../context/PlayerContext";
 import styles from "./SongCard.module.css";
+import { PlusIcon, PlayIcon } from "@phosphor-icons/react";
 
 const SongCard = ({ song, showFavoriteButton = true }) => {
   const { playSong, addToFavorites } = useContext(PlayerContext);
@@ -9,10 +10,6 @@ const SongCard = ({ song, showFavoriteButton = true }) => {
     return <div className={styles.songCardContainer}>Loading...</div>;
   }
 
-  const handlePlay = () => {
-    playSong(song);
-  };
-
   return (
     <div className={styles.songCardContainer}>
       <div className={styles.songDataContainer}>
@@ -20,9 +17,13 @@ const SongCard = ({ song, showFavoriteButton = true }) => {
         <p>{song.artist}</p>
       </div>
       <div>
-        <button onClick={handlePlay}>Play</button>
+        <button onClick={() => playSong(song)}>
+          <PlayIcon size={16} />
+        </button>
         {showFavoriteButton && (
-          <button onClick={() => addToFavorites(song)}>+</button>
+          <button onClick={() => addToFavorites(song)}>
+            <PlusIcon size={16} />
+          </button>
         )}
       </div>
     </div>
