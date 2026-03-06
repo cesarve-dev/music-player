@@ -31,6 +31,7 @@ const Layout = ({ children }) => {
           Playlist
         </NavLink>
       </nav>
+      {/* Application title */}
       <Player />
       <div>{children}</div>
     </div>

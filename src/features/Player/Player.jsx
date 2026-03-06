@@ -1,5 +1,6 @@
 import { useContext, useEffect, useRef } from "react";
 import PlayerContext from "../../context/PlayerContext";
+import { PlayIcon, PauseIcon } from "@phosphor-icons/react";
 import styles from "./Player.module.css";
 
 const Player = () => {
@@ -28,15 +29,23 @@ const Player = () => {
   }
 
   return (
-    <div class={styles.playerContainer}>
-      <div>
-        <p>Now Playing: {currentSong.title}</p>
-        <p>Artist: {currentSong.artist}</p>
+    <div className={styles.playerContainer}>
+      <div className={styles.songDataContainer}>
+        <p>
+          Now Playing: <span>{currentSong.title}</span>
+        </p>
+        <p>
+          Artist: <span>{currentSong.artist}</span>
+        </p>
       </div>
       <audio ref={audioRef}></audio>
       <div className={styles.buttonContainer}>
-        <button onClick={() => setIsPlaying(true)}>Play</button>
-        <button onClick={() => setIsPlaying(false)}>Pause</button>
+        <button onClick={() => setIsPlaying(true)}>
+          <PlayIcon size={24} />
+        </button>
+        <button onClick={() => setIsPlaying(false)}>
+          <PauseIcon size={24} />
+        </button>
         {/* skip button */}
       </div>
       {/* add music length bar */}

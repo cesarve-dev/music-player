@@ -5,6 +5,7 @@ import PlayerContext from "../context/PlayerContext";
 
 const Library = () => {
   const { songList } = useContext(PlayerContext);
+  console.log("rendering library");
   return (
     <>
       <h1>Library Songs</h1>

@@ -4,9 +4,9 @@
   justify-content: space-between;
   border: 2px solid hsl(60, 5%, 20%);
   background-color: #11110b;
-  padding: 1rem;
+  padding: 12px 18px;
   color: hsl(40, 3%, 50%);
-  border-radius: 5px;
+  border-radius: 500px;
   margin: 0.2rem 0;
   font-weight: bold;
 }
@@ -18,14 +18,9 @@
   margin-right: 0.5rem;
 }
 
-/* .songDataContainer > :first-child {
-  flex-grow: 2;
-}
-
-.songDataContainer > :nth-child(2) {
-  flex-grow: 1;
-} */
-
 .songCardContainer button {
   background-color: var(--secondary-button-color);
+  margin-left: 0.5rem;
+  padding: 10px 12px;
+  border-radius: 50%;
 }
