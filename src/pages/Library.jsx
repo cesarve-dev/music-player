@@ -5,7 +5,6 @@ import PlayerContext from "../context/PlayerContext";
 
 const Library = () => {
   const { songList } = useContext(PlayerContext);
-  console.log("rendering library");
   return (
     <>
       <h1>Library Songs</h1>
@@ -14,7 +13,7 @@ const Library = () => {
         <p>Artist</p>
       </Header>
       {songList.map((song) => (
-        <SongCard key={song.id} song={song} />
+        <SongCard key={song.id} song={song} playlist={songList} />
       ))}
     </>
   );

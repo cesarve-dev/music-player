@@ -1,10 +1,22 @@
 import { useContext, useEffect, useRef } from "react";
 import PlayerContext from "../../context/PlayerContext";
-import { PlayIcon, PauseIcon } from "@phosphor-icons/react";
+import {
+  PlayIcon,
+  PauseIcon,
+  SkipForwardIcon,
+  SkipBackIcon,
+} from "@phosphor-icons/react";
 import styles from "./Player.module.css";
 
 const Player = () => {
-  const { currentSong, isPlaying, setIsPlaying } = useContext(PlayerContext);
+  const {
+    currentSong,
+    isPlaying,
+    setIsPlaying,
+    currentIndex,
+    setCurrenSong,
+    setCurrentIndex,
+  } = useContext(PlayerContext);
   const audioRef = useRef(null);
 
   useEffect(() => {
@@ -28,6 +40,16 @@ const Player = () => {
     return <p>No song selected</p>;
   }
 
+  const handleSongEnd = () => {
+    let nextIndex = currentIndex + 1;
+    if (nextIndex >= currentPlaylist.length) {
+      nextIndex = 0;
+    }
+    const nextSong = currentPlaylist[nextIndex];
+    setCurrenSong(nextSong);
+    setCurrentIndex(nextIndex);
+  };
+
   return (
     <div className={styles.playerContainer}>
       <div className={styles.songDataContainer}>
@@ -38,15 +60,20 @@ const Player = () => {
           Artist: <span>{currentSong.artist}</span>
         </p>
       </div>
-      <audio ref={audioRef}></audio>
+      <audio ref={audioRef} onEnded={handleSongEnd}></audio>
       <div className={styles.buttonContainer}>
-        <button onClick={() => setIsPlaying(true)}>
+        <button aria-label="Play song" onClick={() => setIsPlaying(true)}>
           <PlayIcon size={24} />
         </button>
-        <button onClick={() => setIsPlaying(false)}>
+        <button aria-label="Pause song" onClick={() => setIsPlaying(false)}>
           <PauseIcon size={24} />
         </button>
-        {/* skip button */}
+        <button>
+          <SkipBackIcon size={24} weight="fill" />
+        </button>
+        <button>
+          <SkipForwardIcon size={24} weight="fill" />
+        </button>
       </div>
       {/* add music length bar */}
     </div>
