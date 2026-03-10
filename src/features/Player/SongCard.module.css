@@ -24,3 +24,23 @@
   padding: 10px 12px;
   border-radius: 50%;
 }
+
+/* mobile */
+@media only screen and (max-width: 480px) {
+  .songCardContainer {
+    flex-direction: column;
+    border-radius: 25px;
+  }
+
+  .songCardContainer div {
+    padding: 1rem;
+  }
+
+  .songDataContainer {
+    flex-direction: column;
+  }
+
+  .songDataContainer p {
+    margin-bottom: 8px;
+  }
+}

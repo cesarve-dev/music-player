@@ -13,11 +13,10 @@ const Home = () => {
     }
   }, [songList]);
 
-  console.log("re-rendering random song");
   return (
     <div>
       <h2>Listen to this random song</h2>
-      <SongCard song={randomSong} />
+      <SongCard song={randomSong} playlist={songList} />
     </div>
   );
 };

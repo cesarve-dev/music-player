@@ -17,7 +17,17 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [songList, setSongList] = useState([]);
-  const [favorites, setFavorites] = useState([]);
+  const [currentPlaylist, setCurrentPlaylist] = useState(null);
+  const [currentIndex, setCurrentIndex] = useState(null);
+  const [progress, setProgress] = useState(0);
+  const [favorites, setFavorites] = useState(() => {
+    const storedFavorites = localStorage.getItem("favorites");
+    return storedFavorites ? JSON.parse(storedFavorites) : [];
+  });
+
+  useEffect(() => {
+    localStorage.setItem("favorites", JSON.stringify(favorites));
+  }, [favorites]);
 
   useEffect(() => {
     const fetchSongs = async () => {
@@ -43,7 +53,6 @@ function App() {
           };
           return song;
         });
-        // console.log("Fetched data:", songs);
         setSongList([...songs]);
       } catch (error) {
         setErrorMessage(error.message);
@@ -69,8 +78,12 @@ function App() {
     setFavorites((favorites) => favorites.filter((song) => song.id !== songId));
   };
 
-  const playSong = useCallback((song) => {
+  const playSong = useCallback((song, playlist) => {
+    const songIndex = playlist.findIndex((s) => s.id === song.id);
+
     setCurrentSong(song);
+    setCurrentPlaylist(playlist);
+    setCurrentIndex(songIndex);
     setIsPlaying(true);
   }, []);
 
@@ -88,6 +101,11 @@ function App() {
           playSong,
           addToFavorites,
           removeFavoriteSong,
+          currentPlaylist,
+          currentIndex,
+          setCurrentIndex,
+          progress,
+          setProgress,
         }}
       >
         <Layout>

@@ -1,5 +1,7 @@
 import { NavLink } from "react-router";
 import Player from "../features/Player/Player";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import styles from "./Layout.module.css";
 
 const Layout = ({ children }) => {
@@ -31,9 +33,10 @@ const Layout = ({ children }) => {
           Playlist
         </NavLink>
       </nav>
-      {/* Application title */}
+      <h1>Cesar's Music Player</h1>
       <Player />
       <div>{children}</div>
+      <ToastContainer />
     </div>
   );
 };

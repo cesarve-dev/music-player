@@ -4,10 +4,14 @@
 }
 
 .layoutContainer nav {
-  /* border: 1px solid red; */
-  padding: 2rem 0;
+  margin: 1rem 0;
+  padding: 1rem 0;
   display: flex;
   justify-content: space-around;
+}
+
+.layoutContainer nav a {
+  padding: 0.5rem 1rem;
 }
 
 .layoutContainer nav a:hover {
@@ -15,12 +19,30 @@
 }
 
 .active {
-  color: #e0e1dd;
+  border-radius: 500px;
+  background-color: #2b2b2b;
+  color: #fff;
   text-decoration: none;
   font-weight: bold;
+  padding: 0.5rem 1rem;
 }
 
 .inactive {
   color: #abafab;
   text-decoration: none;
+  padding: 0.5rem 1rem;
+}
+
+/* tablet */
+@media only screen and (min-width: 481px) and (max-width: 1024px) {
+  .layoutContainer nav {
+    font-size: 24px;
+  }
+  .layoutContainer nav a {
+    padding: 1rem 2rem;
+  }
+}
+
+/* mobile */
+@media only screen and (max-width: 480px) {
 }
