@@ -17,9 +17,16 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [songList, setSongList] = useState([]);
-  const [favorites, setFavorites] = useState([]);
   const [currentPlaylist, setCurrentPlaylist] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(null);
+  const [favorites, setFavorites] = useState(() => {
+    const storedFavorites = localStorage.getItem("favorites");
+    return storedFavorites ? JSON.parse(storedFavorites) : [];
+  });
+
+  useEffect(() => {
+    localStorage.setItem("favorites", JSON.stringify(favorites));
+  }, [favorites]);
 
   useEffect(() => {
     const fetchSongs = async () => {

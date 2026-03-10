@@ -4,9 +4,7 @@ import SongCard from "../features/Player/SongCard";
 
 const Playlist = () => {
   const { favorites, removeFavoriteSong } = useContext(PlayerContext);
-  const favoriteSongs = favorites;
 
-  console.log("rendering playlist");
   return (
     <div>
       <h2>Favorite Playlist</h2>
@@ -18,6 +16,7 @@ const Playlist = () => {
             key={song.id}
             song={song}
             showFavoriteButton={false}
+            showRemoveButton={true}
             playlist={favorites}
           />
         ))
