@@ -7,7 +7,7 @@ const Library = () => {
   const { songList } = useContext(PlayerContext);
   return (
     <>
-      <h1>Library Songs</h1>
+      <h2>Library Songs</h2>
       <Header>
         <p>Title</p>
         <p>Artist</p>

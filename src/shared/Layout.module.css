@@ -10,6 +10,10 @@
   justify-content: space-around;
 }
 
+.layoutContainer nav a {
+  padding: 0.5rem 1rem;
+}
+
 .layoutContainer nav a:hover {
   color: #e0e1dd;
 }
@@ -26,4 +30,19 @@
 .inactive {
   color: #abafab;
   text-decoration: none;
+  padding: 0.5rem 1rem;
+}
+
+/* tablet */
+@media only screen and (min-width: 481px) and (max-width: 1024px) {
+  .layoutContainer nav {
+    font-size: 24px;
+  }
+  .layoutContainer nav a {
+    padding: 1rem 2rem;
+  }
+}
+
+/* mobile */
+@media only screen and (max-width: 480px) {
 }

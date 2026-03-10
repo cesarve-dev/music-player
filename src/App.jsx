@@ -19,6 +19,7 @@ function App() {
   const [songList, setSongList] = useState([]);
   const [currentPlaylist, setCurrentPlaylist] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(null);
+  const [progress, setProgress] = useState(0);
   const [favorites, setFavorites] = useState(() => {
     const storedFavorites = localStorage.getItem("favorites");
     return storedFavorites ? JSON.parse(storedFavorites) : [];
@@ -102,6 +103,9 @@ function App() {
           removeFavoriteSong,
           currentPlaylist,
           currentIndex,
+          setCurrentIndex,
+          progress,
+          setProgress,
         }}
       >
         <Layout>

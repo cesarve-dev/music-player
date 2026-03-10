@@ -33,7 +33,7 @@ const Layout = ({ children }) => {
           Playlist
         </NavLink>
       </nav>
-      {/* Application title */}
+      <h1>Cesar's Music Player</h1>
       <Player />
       <div>{children}</div>
       <ToastContainer />
